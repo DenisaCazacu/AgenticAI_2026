@@ -26,7 +26,7 @@ class LogAnalysis(BaseModel):
     recommended_fix: list[str] = Field(description="List of concrete recommended fixes and their steps.")
 
 # TODO: Improve this system prompt so the model accurately classifies SIEM logs
-SYSTEM_PROMPT = "Parse the server log."
+SYSTEM_PROMPT = "You are a security log analysis assistant. Analyze raw server logs and classify them according to severity, error code, system compromise status, and recommended fixes."
 
 def parse_server_log(raw_log: str) -> LogAnalysis:
     response = client.models.generate_content(
